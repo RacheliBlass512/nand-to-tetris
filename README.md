@@ -7,7 +7,7 @@ Project solutions for the Nand to Tetris course.
 
 The best way to understand how a computer works is to built one from scratch. And that is exactly what [Nand to Tetris course](https://www.nand2tetris.org) does.
 
-![Course Logo](assets/images/Logo.png)
+![Course Logo](assets/images/N2TLogo.png)
 
 ## Repository
 
