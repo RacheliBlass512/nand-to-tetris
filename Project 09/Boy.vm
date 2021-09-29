@@ -1,0 +1,735 @@
+function Boy.new 0
+push constant 3
+call Memory.alloc 1
+pop pointer 0
+push constant 100
+pop this 0
+push constant 255
+pop this 1
+push constant 7142
+pop this 2
+push pointer 0
+push constant 1
+call Boy.drawBoy 2
+pop temp 0
+push pointer 0
+return
+function Boy.dispose 0
+push argument 0
+pop pointer 0
+push pointer 0
+call Memory.deAlloc 1
+pop temp 0
+push constant 0
+return
+function Boy.drawPartA 1
+push argument 0
+pop pointer 0
+push constant 16384
+push this 2
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push argument 1
+push constant 512
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push argument 1
+push constant 256
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push argument 1
+push constant 896
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push argument 1
+push constant 384
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push argument 1
+push constant 24960
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push argument 1
+push constant 24960
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push argument 1
+push constant 384
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Boy.drawPartB 1
+push argument 0
+pop pointer 0
+push constant 16384
+push this 2
+add
+push constant 1
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push argument 1
+push constant 127
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push argument 1
+push constant 255
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push argument 1
+push constant 448
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push argument 1
+push constant 384
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push argument 1
+push constant 390
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push argument 1
+push constant 390
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push argument 1
+push constant 384
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Boy.drawPartC 1
+push argument 0
+pop pointer 0
+push constant 16384
+push this 2
+add
+push constant 512
+add
+pop local 0
+push local 0
+push constant 0
+add
+push argument 1
+push constant 17152
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push argument 1
+push constant 14464
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push argument 1
+push constant 1920
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push argument 1
+push constant 960
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push argument 1
+push constant 1632
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push argument 1
+push constant 3168
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push argument 1
+push constant 3168
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push argument 1
+push constant 32608
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push argument 1
+push constant 32
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push argument 1
+push constant 64
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push argument 1
+push constant 128
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push argument 1
+push constant 128
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push argument 1
+push constant 128
+neg
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push argument 1
+push constant 16320
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push argument 1
+push constant 16352
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push argument 1
+push constant 16368
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Boy.drawPartD 1
+push argument 0
+pop pointer 0
+push constant 16384
+push this 2
+add
+push constant 513
+add
+pop local 0
+push local 0
+push constant 0
+add
+push argument 1
+push constant 194
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push argument 1
+push constant 483
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push argument 1
+push constant 480
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push argument 1
+push constant 960
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push argument 1
+push constant 1632
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push argument 1
+push constant 1584
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push argument 1
+push constant 1584
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push argument 1
+push constant 1790
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push argument 1
+push constant 2047
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push argument 1
+push constant 1023
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push argument 1
+push constant 511
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push argument 1
+push constant 511
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push argument 1
+push constant 511
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push argument 1
+push constant 1020
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push argument 1
+push constant 2044
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push argument 1
+push constant 4092
+call Math.multiply 2
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
+function Boy.drawBoy 0
+push argument 0
+pop pointer 0
+push pointer 0
+push argument 1
+call Boy.drawPartA 2
+pop temp 0
+push pointer 0
+push argument 1
+call Boy.drawPartB 2
+pop temp 0
+push pointer 0
+push argument 1
+call Boy.drawPartC 2
+pop temp 0
+push pointer 0
+push argument 1
+call Boy.drawPartD 2
+pop temp 0
+push constant 0
+return
+function Boy.moveUpRight 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 32
+gt
+push this 0
+push constant 480
+lt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push constant 0
+call Boy.drawBoy 2
+pop temp 0
+push this 1
+push constant 32
+sub
+pop this 1
+push this 0
+push constant 32
+add
+pop this 0
+push this 1
+push constant 32
+call Math.multiply 2
+push this 0
+push constant 16
+call Math.divide 2
+add
+push constant 1024
+sub
+pop this 2
+push pointer 0
+push constant 1
+call Boy.drawBoy 2
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Boy.moveUpLeft 0
+push argument 0
+pop pointer 0
+push this 1
+push constant 32
+gt
+push this 0
+push constant 2
+gt
+and
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push constant 0
+call Boy.drawBoy 2
+pop temp 0
+push this 1
+push constant 32
+sub
+pop this 1
+push this 0
+push constant 32
+sub
+pop this 0
+push this 1
+push constant 32
+call Math.multiply 2
+push this 0
+push constant 16
+call Math.divide 2
+add
+push constant 1024
+sub
+pop this 2
+push pointer 0
+push constant 1
+call Boy.drawBoy 2
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Boy.moveLeft 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 2
+gt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push constant 0
+call Boy.drawBoy 2
+pop temp 0
+push this 0
+push constant 32
+sub
+pop this 0
+push this 1
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+pop this 1
+push this 1
+push constant 32
+call Math.multiply 2
+push this 0
+push constant 16
+call Math.divide 2
+add
+push constant 1024
+sub
+pop this 2
+push pointer 0
+push constant 1
+call Boy.drawBoy 2
+pop temp 0
+label IF_FALSE0
+push constant 0
+return
+function Boy.moveRight 0
+push argument 0
+pop pointer 0
+push this 0
+push constant 480
+lt
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+push pointer 0
+push constant 0
+call Boy.drawBoy 2
+pop temp 0
+push this 0
+push constant 32
+add
+pop this 0
+push this 1
+push constant 32
+push argument 1
+call Math.multiply 2
+add
+pop this 1
+push this 1
+push constant 32
+call Math.multiply 2
+push this 0
+push constant 16
+call Math.divide 2
+add
+push constant 1024
+sub
+pop this 2
+push pointer 0
+push constant 1
+call Boy.drawBoy 2
+pop temp 0
+label IF_FALSE0
+push constant 0
+return

@@ -1,0 +1,170 @@
+class Boy {
+
+    field int x, y; // screen location of the square's top-left corner
+    field int location;
+
+    constructor Boy new(){
+        let x = 100;
+        let y = 255;
+        let location = 7142;
+        do drawBoy(1);
+        return this;
+    }
+
+    /** Disposes this square. */
+    method void dispose() {
+    do Memory.deAlloc(this);
+    return;
+    }
+
+    method void drawPartA(int toDraw) {
+        var int memAddress;
+        let memAddress = 16384+location;
+        do Memory.poke(memAddress+0, 0);
+        do Memory.poke(memAddress+32, 0);
+        do Memory.poke(memAddress+64, 0);
+        do Memory.poke(memAddress+96, 0);
+        do Memory.poke(memAddress+128, 0);
+        do Memory.poke(memAddress+160, 0);
+        do Memory.poke(memAddress+192, 0);
+        do Memory.poke(memAddress+224, 0);
+        do Memory.poke(memAddress+256, 0);
+        do Memory.poke(memAddress+288, toDraw*-512);
+        do Memory.poke(memAddress+320, toDraw*-256);
+        do Memory.poke(memAddress+352, toDraw*896);
+        do Memory.poke(memAddress+384, toDraw*384);
+        do Memory.poke(memAddress+416, toDraw*24960);
+        do Memory.poke(memAddress+448, toDraw*24960);
+        do Memory.poke(memAddress+480, toDraw*384);
+        return;
+    }
+
+    method void drawPartB(int toDraw) {
+        var int memAddress;
+        let memAddress = 16384+location+1;
+        do Memory.poke(memAddress+0, 0);
+        do Memory.poke(memAddress+32, 0);
+        do Memory.poke(memAddress+64, 0);
+        do Memory.poke(memAddress+96, 0);
+        do Memory.poke(memAddress+128, 0);
+        do Memory.poke(memAddress+160, 0);
+        do Memory.poke(memAddress+192, 0);
+        do Memory.poke(memAddress+224, 0);
+        do Memory.poke(memAddress+256, 0);
+        do Memory.poke(memAddress+288, toDraw*127);
+        do Memory.poke(memAddress+320, toDraw*255);
+        do Memory.poke(memAddress+352, toDraw*448);
+        do Memory.poke(memAddress+384, toDraw*384);
+        do Memory.poke(memAddress+416, toDraw*390);
+        do Memory.poke(memAddress+448, toDraw*390);
+        do Memory.poke(memAddress+480, toDraw*384);
+        return;
+    }
+
+    method void drawPartC(int toDraw) {
+        var int memAddress;
+        let memAddress = 16384+location+512;
+        do Memory.poke(memAddress+0, toDraw*17152);
+        do Memory.poke(memAddress+32,toDraw* -14464);
+        do Memory.poke(memAddress+64, toDraw*1920);
+        do Memory.poke(memAddress+96, toDraw*960);
+        do Memory.poke(memAddress+128, toDraw*1632);
+        do Memory.poke(memAddress+160, toDraw*3168);
+        do Memory.poke(memAddress+192, toDraw*3168);
+        do Memory.poke(memAddress+224,toDraw* 32608);
+        do Memory.poke(memAddress+256,toDraw* -32);
+        do Memory.poke(memAddress+288,toDraw* -64);
+        do Memory.poke(memAddress+320, toDraw*-128);
+        do Memory.poke(memAddress+352, toDraw*-128);
+        do Memory.poke(memAddress+384,toDraw* -128);
+        do Memory.poke(memAddress+416, toDraw*16320);
+        do Memory.poke(memAddress+448, toDraw*16352);
+        do Memory.poke(memAddress+480,toDraw* 16368);
+        return;
+    }
+
+    method void drawPartD(int toDraw) {
+        var int memAddress;
+        let memAddress = 16384+location+513;
+        do Memory.poke(memAddress+0, toDraw*194);
+        do Memory.poke(memAddress+32, toDraw*483);
+        do Memory.poke(memAddress+64, toDraw*480);
+        do Memory.poke(memAddress+96, toDraw*960);
+        do Memory.poke(memAddress+128,toDraw* 1632);
+        do Memory.poke(memAddress+160,toDraw* 1584);
+        do Memory.poke(memAddress+192,toDraw* 1584);
+        do Memory.poke(memAddress+224,toDraw* 1790);
+        do Memory.poke(memAddress+256, toDraw*2047);
+        do Memory.poke(memAddress+288, toDraw*1023);
+        do Memory.poke(memAddress+320, toDraw*511);
+        do Memory.poke(memAddress+352, toDraw*511);
+        do Memory.poke(memAddress+384, toDraw*511);
+        do Memory.poke(memAddress+416, toDraw*1020);
+        do Memory.poke(memAddress+448, toDraw*2044);
+        do Memory.poke(memAddress+480,toDraw* 4092);
+        return;
+    }
+
+    method void drawBoy (int toDraw) {
+        do drawPartA(toDraw);
+        do drawPartB(toDraw);
+        do drawPartC(toDraw);
+        do drawPartD(toDraw);
+        return;
+    }
+
+    /** Moves the square up by 2 pixels. */
+    method void moveUpRight() {
+        if ((y > 32) & (x < 480)) {
+        //     do Sys.wait(60);
+        // do Screen.setColor(false);
+        do drawBoy(0);
+        let y = y - 32;
+        let x = x + 32;
+        // do Sys.wait(500);
+        // do Screen.setColor(true);
+        let location = (y*32)+(x/16) - 1024;
+        do drawBoy(1);
+        }
+        return;
+    }
+
+    /** Moves the square down by 2 pixels. */
+    method void moveUpLeft() {
+        if ((y > 32) & (x >2)) {
+            //     do Sys.wait(60);
+        // do Screen.setColor(false);
+        do drawBoy(0);
+        let y = y - 32;
+        let x = x - 32;        // do Sys.wait(500);
+        // do Screen.setColor(true);
+        let location = (y*32)+(x/16) - 1024;
+        do drawBoy(1);
+        }
+        return;
+    }
+
+    /** Moves the square left by 2 pixels. */
+    method void moveLeft(int numToFall) {
+        if (x > 2) {
+        do drawBoy(0);
+        let x = x - 32; 
+        let y = y + (32* numToFall);
+        let location = (y*32)+(x/16) - 1024;
+        do drawBoy(1);
+        }
+        return;
+    }
+
+    /** Moves the square right by 2 pixels. */
+    method void moveRight(int numToFall) {
+        if (x < 480) {
+        do drawBoy(0);
+        let x = x +32; 
+        let y = y + (32* numToFall);
+        let location = (y*32)+(x/16) - 1024;
+        do drawBoy(1);
+        }
+        return;
+    }
+}

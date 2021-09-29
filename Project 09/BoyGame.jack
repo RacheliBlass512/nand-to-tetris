@@ -1,0 +1,223 @@
+class BoyGame{
+
+   field int direction; // the square's current direction: 
+   field Boy boy;
+   field Array arr;
+   field Array randomArr;
+   field Stone stone;
+   field int i;
+   field int boyLocation;
+   field int boyHeight;
+
+   constructor BoyGame new() {
+      var int ii;
+      var int jj;
+      let ii = 0;
+      let jj = 0;
+      while(ii<3){
+         while(jj<8){
+            do Sys.wait(100);
+            do stone.drawStart(((2*ii)+(jj*1024)));
+            do stone.drawStart(((2*(15 - ii))+(jj*1024)));
+            let jj= jj+1;
+         }
+         let ii=ii+1;
+         let jj = 0;         
+      }
+   
+     // var int i ;
+      let direction = 0;  // initial state is no movement
+      let boy = Boy.new();
+      let arr = Array.new(16);
+      let i = 0;
+      while(i<3){
+         let arr[i] = 8;
+         let i=i+1;
+      }
+      while (i<13){
+         let arr[i] = 0;
+         let i = i + 1;
+      }
+      while(i<15){
+         let arr[i] = 8;
+         let i=i+1;
+      }
+      let boyLocation = 3;
+      let boyHeight = 0;
+     let randomArr = Array.new(32);
+            let randomArr[0]  = 3 ;
+            let randomArr[1]  = 8 ;
+            let randomArr[2]  = 10 ;
+            let randomArr[3]  = 3 ;
+            let randomArr[4]  = 7 ;
+            let randomArr[5]  = 8 ;
+            let randomArr[6]  = 10 ;
+            let randomArr[7]  = 5 ;
+            let randomArr[8]  = 6 ;
+            let randomArr[9]  = 6 ;
+            let randomArr[10] = 3 ;
+            let randomArr[11] = 7 ;
+            let randomArr[12] = 12 ;
+            let randomArr[13] = 4 ;
+            let randomArr[14] = 10 ;
+            let randomArr[15] = 11 ;
+            let randomArr[16] = 6 ;
+            let randomArr[17] = 4 ;
+            let randomArr[18] = 6 ;
+            let randomArr[19] = 5 ;
+            let randomArr[20] = 11 ;
+            let randomArr[21] = 9 ;
+            let randomArr[22] = 4 ;
+            let randomArr[23] = 12 ;
+            let randomArr[24] = 9 ;
+            let randomArr[25] = 11 ;
+            let randomArr[26] = 5 ;
+            let randomArr[27] = 6 ;
+            let randomArr[28] = 9 ;
+            let randomArr[29] = 7 ;
+      return this;
+   }
+
+   /** Disposes this game. */
+   method void dispose() {
+      do boy.dispose();
+      do stone.dispose();
+      do Memory.deAlloc(this);
+      return;
+   }
+
+   method void moveBoy(){
+      var int nextHiegt;
+      var int difference;
+      var int temp;
+      let boyHeight = arr[boyLocation];
+      if (direction = 1) {
+         let temp = boyLocation+1;
+         let nextHiegt = arr[temp];
+         let difference = boyHeight - nextHiegt;
+         if(difference=-1) {
+            do boy.moveUpRight(); 
+            let boyLocation = boyLocation+1;
+         }
+      }
+      if (direction = 2) {
+         let temp = boyLocation-1;
+         let nextHiegt = arr[temp];
+         let difference = boyHeight - nextHiegt;
+         if(difference=-1) {
+            do boy.moveUpLeft(); 
+            let boyLocation = boyLocation-1;
+         }
+      }
+      if (direction = 3) {
+         let temp = boyLocation-1;
+         let nextHiegt = arr[temp];
+         let difference = boyHeight - nextHiegt;
+         if(difference>-1) {
+            let boyLocation = temp;
+            do boy.moveLeft(difference); 
+         }
+      }
+      if (direction = 4) {
+         let temp = boyLocation+1;
+         let nextHiegt = arr[temp];
+         let difference = boyHeight - nextHiegt;
+         if(difference>-1) {
+            let boyLocation = temp;
+            do boy.moveRight(difference); 
+         }
+      }
+      do Sys.wait(5);  // delays the next movement
+      return;
+   }
+    
+   /** Runs the game: handles the user's inputs and moves the square accordingly */
+   method void run() {
+      var int i;
+      var int heightInIndex;
+      var int temp;
+      var int indexStone;
+      var int height;
+      var int locationNow;
+      var char key;  // the key currently pressed by the user
+      var boolean exit;
+      var int whileIndex;
+      let exit = false;
+      let i = 0;
+    
+      while (~exit) {
+         // waits for a key to be pressed
+         while (key = 0) {
+            let stone=Stone.new();
+            do stone.draw(2*randomArr[i],1);
+            do Sys.wait(15); //!!
+            let height=8;
+            let locationNow=2*randomArr[i];
+            let indexStone = randomArr[i];
+            let heightInIndex=arr[indexStone];
+            while((height > (heightInIndex+1))){
+               if(height=(heightInIndex+2)){
+                  if(boyLocation=indexStone){
+                     do Screen.clearScreen();
+                     do Output.moveCursor(11,23);
+                     do Output.printString("game over :(");
+                     do Sys.wait(1000);
+                     let exit = true;
+                  }
+                  let temp=arr[indexStone];
+                  let temp=temp+1;
+                  let arr[indexStone]=temp;       
+               }
+               let boyHeight = arr[boyLocation];
+               if(boyHeight=6){
+                  do Screen.clearScreen();
+                  do Output.moveCursor(11,23);
+                  do Output.printString("you win!!");
+                  do Sys.wait(1000);
+                  let exit = true;
+               }
+               if(~exit){
+                  let whileIndex = 0;
+                  do stone.draw(locationNow,0);
+                  do stone.draw(locationNow+1024,1);
+                  while(whileIndex<20){
+                     let key = Keyboard.keyPressed();
+                     if(~(key=0)){
+                        do Sys.wait(200);
+                        if (key = 131) { let direction = 1; }   // up arrow
+                        if (key = 133) { let direction = 2; }   // down arrow
+                        if (key = 130) { let direction = 3; }   // left arrow
+                        if (key = 132) { let direction = 4; }   // right arrow
+                        do moveBoy();
+                        do Sys.wait(2);
+                     }
+                     do Sys.wait(10);
+                     let whileIndex = whileIndex+1;
+                  }
+                  let locationNow=locationNow+1024;
+                  let height=height-1;
+               }
+            }
+            let i = i+1;
+            if(i=30){
+               do Sys.wait(5);
+               let i=0;
+            }
+            let key = Keyboard.keyPressed();
+            do Sys.wait(2);
+         }
+         if (key = 131) { let direction = 1; }   // up arrow
+         if (key = 133) { let direction = 2; }   // down arrow
+         if (key = 130) { let direction = 3; }   // left arrow
+         if (key = 132) { let direction = 4; }   // right arrow
+
+         // waits for the key to be released
+         if (~(key = 0)) {
+            do Sys.wait(200);
+            let key = Keyboard.keyPressed();
+            do moveBoy();
+         }
+      }
+      return;
+   }
+}
