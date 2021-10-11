@@ -13,7 +13,6 @@ The best way to understand how a computer works is to built one from scratch. An
 
 This repository contains my Nand to Tetris project solutions. The course is comprised of two parts, hardware and software. this parts:
 ### All projects for Nand2Teris:
-* Project 0: Introduction 
 * Project 1: Boolean Logic
 * Project 2: Boolean Arithmetic
 * Project 3: Sequential Logic   
@@ -21,7 +20,6 @@ This repository contains my Nand to Tetris project solutions. The course is comp
 * Project 5: Computer Architecture  
 * Project 6: Assembler   
 * Project 7: VM I: Stack Arithmetic   
-* Project 9: High-Level Language  
 
 ### more details:
 
@@ -36,8 +34,6 @@ This repository contains my Nand to Tetris project solutions. The course is comp
 
 * **Chapters 6-7: Virtual Machine**. We discuss the virtues of a virtual machine approach, and specify a stack-based VM. Next, we guide the students through the process of writing a VM implementation, which will later serve as the backend of the compiler. Chapter 6 focuses on stack arithmetic, and chapter 7 on the procedure call stack.
 
-
-* **Chapter 9 focuses on syntax analysis.**
 
 
 ## References
